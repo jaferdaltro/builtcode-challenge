@@ -7,5 +7,8 @@ RSpec.describe Doctor, type: :model do
   
   it { is_expected.to validate_uniqueness_of(:crm).case_insensitive }
 
+  it { is_expected.to have_many(:appointments)}
+  it { is_expected.to have_many(:patients).through(:appointments) }
+
 
 end
