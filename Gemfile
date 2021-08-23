@@ -11,6 +11,8 @@ gem 'puma', '~> 5.0'
 gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 5.0'
 gem 'turbolinks', '~> 5'
+ gem 'pagy', '~> 3.5'
+
 
 # Optimization
 gem 'bootsnap', '>= 1.4.4', require: false

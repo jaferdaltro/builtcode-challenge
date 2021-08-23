@@ -1,27 +1,29 @@
+
 <%= form_with(model: @doctor, local: true) do |form|%>
-  
   <% if @doctor.errors.any? %>
     <% @doctor.errors.full_messages.each do |message| %>
       <li><%= message %></li>
     <% end%>
   <% end%>
+  <div class="row justify-content-center">
+    <div class="col-lg-6">
+      <div class="form-group">
+        <%=form.label :name, 'Nome:' %>
+        <%=form.text_field :name, class:"form-control" %>
+      </div>
+      <div class="form-group">
+        <%=form.label :crm, 'CRM:' %>
+        <%=form.text_field :crm, class:"form-control" %>
+      </div>
+      <div class="form-groups">
+        <%=form.label :crm_uf, 'UF:' %>
+        <%=form.text_field :crm_uf, class:"form-control" %>
+      </div>
 
-  <div class="field">
-    <%=form.label :name %>
-    <%=form.text_field :name %>
-  </div>
-  <div class="field">
-    <%=form.label :crm %>
-    <%=form.text_field :crm %>
-  </div>
-  <div class="field">
-    <%=form.label :crm_uf %>
-    <%=form.text_field :crm_uf %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-
+      <div class="actions">
+        <%= form.submit "Enviar",  class: "btn btn-primary mt-3"  %>
+      </div>
+    </div>
+</div>
 
 <% end%>

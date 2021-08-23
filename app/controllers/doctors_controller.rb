@@ -3,7 +3,7 @@ class DoctorsController < ApplicationController
   
   
   def index
-    @doctors = Doctor.order(:name)
+    @pagy, @doctors = pagy(Doctor.order(:name), items: 10)
   end
 
   def new
