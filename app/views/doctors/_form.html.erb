@@ -1,0 +1,27 @@
+<%= form_with(model: @doctor, local: true) do |form|%>
+  
+  <% if @doctor.errors.any? %>
+    <% @doctor.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end%>
+  <% end%>
+
+  <div class="field">
+    <%=form.label :name %>
+    <%=form.text_field :name %>
+  </div>
+  <div class="field">
+    <%=form.label :crm %>
+    <%=form.text_field :crm %>
+  </div>
+  <div class="field">
+    <%=form.label :crm_uf %>
+    <%=form.text_field :crm_uf %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+
+
+<% end%>
