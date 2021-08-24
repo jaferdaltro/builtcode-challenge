@@ -1,0 +1,21 @@
+<h1 class="text-center mt-4">Pacientes</h1>
+<table class="table">
+   <thead>
+      <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">CPF</th>
+        <th scope="col">Data de Nascimento</th>
+        <th scope="col">Editar</th>
+        <th scope="col">Remover</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @patients %>
+    </tbody>
+    </table>
+
+<%= raw pagy_bootstrap_nav(@pagy) %>
+<div class="row justify-content-center">
+  <%= link_to "Novo Paciente", new_patient_path, class: "btn btn-primary col-2" %>
+</div>
+  

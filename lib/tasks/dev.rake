@@ -9,4 +9,16 @@ namespace :dev do
       )
     end
   end
+
+  desc "Insert patients"
+  task add_patients: :environment do
+    100.times do |i|
+      Patient.create!(
+        name: Faker::Name.name,
+        cpf: CPF.generate,
+        birth_date: Faker::Date.between(from: '1949-09-23', to: '2014-09-25')
+      )
+    end
+  end
+
 end

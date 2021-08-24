@@ -33,7 +33,7 @@ class DoctorsController < ApplicationController
 
   def destroy
     if @doctor.destroy
-      redirect_to doctors_path, status: :no_content
+      redirect_to root_path, status: :no_content
     else
       render :index
     end
