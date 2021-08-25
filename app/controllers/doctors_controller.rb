@@ -25,7 +25,7 @@ class DoctorsController < ApplicationController
   def update
     if @doctor.update(params_doctor)
       flash[:success] = "Atualizado com sucesso!"
-      redirect_to doctors_path
+      redirect_to doctors_url
     else
       render :edit
     end
@@ -33,7 +33,7 @@ class DoctorsController < ApplicationController
 
   def destroy
     if @doctor.destroy
-      redirect_to root_path, status: :no_content
+      redirect_to doctors_url, status: :no_content
     else
       render :index
     end

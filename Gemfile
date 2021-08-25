@@ -11,10 +11,10 @@ gem 'puma', '~> 5.0'
 gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 5.0'
 gem 'turbolinks', '~> 5'
- gem 'pagy', '~> 3.5'
- gem 'cpf_cnpj', '~> 0.5.0'
- gem "validators"
-
+gem 'pagy', '~> 3.5'
+gem 'cpf_cnpj', '~> 0.5.0'
+gem 'validators', '~> 3.4', '>= 3.4.1'
+gem 'simple_form', '~> 5.1'
 
 
 # Optimization
@@ -27,6 +27,10 @@ group :development, :test do
   gem 'faker'
   gem 'rspec-rails', '~> 4.0.1'
   gem 'shoulda-matchers', '~> 5.0'
+  gem 'pry'
+  gem 'pry-rails'
+  gem 'awesome_print'
+
 end
 
 group :development do
