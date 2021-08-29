@@ -1,8 +1,9 @@
 FactoryBot.define do
   factory :appointment do
-    starts_at { "2021-08-21 19:50:06" }
-    ends_at { "2021-08-21 19:50:06" }
-    patient { nil }
-    doctor { nil }
+    starts_at { DateTime.new(2000,2,2,10,00) }
+    ends_at { DateTime.new(2000,2,2,10,28) }
+    association :doctor
+    association :patient
+  
   end
 end

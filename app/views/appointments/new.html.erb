@@ -1,2 +1,10 @@
-<h1>Appointments#new</h1>
-<p>Find me in app/views/appointments/new.html.erb</p>
+<div class="container">
+  <%= simple_form_for @appointment do |f| %>
+    <%= f.input :starts_at %>
+  
+    <%= f.association :doctor %>
+    <%= f.association :patient %>
+    <%= f.submit "appointment", class: "btn btn-primary" %>
+  <% end %>
+
+</div>

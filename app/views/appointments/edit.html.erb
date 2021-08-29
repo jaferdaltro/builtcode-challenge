@@ -1,6 +1,1 @@
 
-<%= simple_form_for([@doctor, @appointment]) do |f| %>
-  <%= f.input :starts_at, as: :string, label: "Dates", placeholder: "From", wrapper_html: { class: "inline_field_wrapper" } %>
-  <%= f.input :ends_at, as: :string, label: '&nbsp;'.html_safe, placeholder: "To", disabled: true, wrapper_html: { class: "inline_field_wrapper" } %>
-  <%= f.submit "appointment", class: "btn btn-primary btn-lg btn-block btn-booking" %>
-<% end %>

@@ -6,4 +6,11 @@ class Doctor < ApplicationRecord
   validates :crm, presence: true, uniqueness: { case_sensitive: false }
   validates :crm_uf, presence: true
 
+  def unavailable_dates
+    appointments.pluck(:starts_at, :ends_at).map do |range|
+      {from: range[0], to: range[1]}
+    end
+  end
+  
+
 end

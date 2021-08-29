@@ -5,7 +5,7 @@ class VacantnessValidator < ActiveModel::EachValidator
     slots = appointments.map { |a| a.starts_at..a.ends_at }
 
     slots.each do |slot|
-      if slot.include? value
+      if slot.cover? value
         record.errors.add(attribute, "esse horário está ocupado")
       end
     end
