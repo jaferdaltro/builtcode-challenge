@@ -1,1 +1,20 @@
-@import 'bootstrap/dist/css/bootstrap'
+@import 'bootstrap/dist/css/bootstrap';
+
+.nav{
+  background-color: grayscale($color: #000000);
+}
+
+.search-area {
+  padding-top: 50px;
+}
+
+
+.results-block{
+  margin-top: 50px;
+  display: inline-block;
+}
+
+.table{
+  margin-top: 50px;
+
+}

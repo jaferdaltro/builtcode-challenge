@@ -1,1 +1,40 @@
-<h1> DASHBOARD</h1>
+<%= search_form_for @q, url: root_path do |f| %>
+	<div class="col-sm">
+		<div class="form-group">
+			<%= f.label :name, "Médico" %>
+			<%= f.collection_select :name_eq, Doctor.all, :name, :name,{ include_blank: 'Todos os médicos'}, class: 'form-control' %>
+
+			<%= f.submit %>
+		</div>
+	</div>
+<% end %>
+
+<div class="row">
+	<div class="col-9">
+		<table class="table table-bordered table-hover">
+		<thead>
+			<tr>
+			<th scope="col">Médico</th>
+			<th scope="col">Consultas Realizadas</th>
+			<th scope="col">Pacientes Atendidos</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @doctors.each do |doctor| %>
+				<tr>
+					<th scope="row"><%= doctor.name  %></th>
+					<td><%= doctor.appointments.count  %></td>
+					<td><%= doctor.patients.count  %></td>
+				</tr>
+			<% end %>
+		</tbody>
+		</table>
+
+	</div>
+</div>
+<%= raw pagy_bootstrap_nav(@pagy) %>
+
+
+
+
+

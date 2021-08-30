@@ -16,6 +16,8 @@ gem 'cpf_cnpj', '~> 0.5.0'
 gem 'validators', '~> 3.4', '>= 3.4.1'
 gem 'simple_form', '~> 5.1'
 gem 'time_difference'
+gem 'ransack'
+
 
 
 # Optimization
