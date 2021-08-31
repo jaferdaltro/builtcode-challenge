@@ -35,9 +35,8 @@ class DoctorsController < ApplicationController
 
   def destroy
     unless @doctor.destroy
-      flash[:waning] = @doctor.errors.full_messages[0] 
+      flash[:warning] = @doctor.errors.full_messages[0] 
     end
-    flash[:info] = "Medico deletado com sucesso!"
     redirect_to root_url
   end
 
