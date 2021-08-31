@@ -13,7 +13,7 @@ class DoctorsController < ApplicationController
   def create
     @doctor = Doctor.new(params_doctor)
     if @doctor.save
-      redirect_to doctors_path
+      redirect_to root_url
     else
       render :new
     end
@@ -24,19 +24,18 @@ class DoctorsController < ApplicationController
 
   def update
     if @doctor.update(params_doctor)
-      flash[:success] = "Atualizado com sucesso!"
-      redirect_to doctors_url
+      flash[:notice] = "Atualizado com sucesso!"
+      redirect_to root_url
     else
       render :edit
     end
   end
 
   def destroy
-    if @doctor.destroy
-      redirect_to doctors_url, status: :no_content
-    else
-      render :index
+    unless @doctor.destroy
+      flash[:notice] = @doctor.errors.full_messages[0]
     end
+    redirect_to root_url
   end
 
   private

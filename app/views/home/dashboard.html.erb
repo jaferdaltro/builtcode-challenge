@@ -24,7 +24,7 @@
 				<tr>
 					<th scope="row"><%= doctor.name  %></th>
 					<td><%= doctor.appointments.count  %></td>
-					<td><%= doctor.patients.count  %></td>
+					<td><%= doctor.patients.distinct.count  %></td>
 				</tr>
 			<% end %>
 		</tbody>

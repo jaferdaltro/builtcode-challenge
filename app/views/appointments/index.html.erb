@@ -1,0 +1,32 @@
+<h1 class="text-center mt-4">Consultas Agendadas</h1>
+<table class="table">
+   <thead>
+      <tr>
+        <th scope="col">Inicio da Consulta</th>
+        <th scope="col">Final da Consulta</th>
+        <th scope="col">Médico</th>
+        <th scope="col">Paciente</th>
+        <th scope="col">Editar</th>
+      </tr>
+  </thead>
+    <tbody>
+      <% @appointments.each do |appointment| %>
+        <tr>
+          <td><%= appointment.starts_at%></td>
+          <td><%= appointment.ends_at %></td>
+          <td><%= appointment.doctor.name %></td>
+          <td><%= appointment.patient.name %></td>
+          <td>
+            <%= link_to edit_appointment_path(appointment), class:"btn btn-primary btn-circle" do %>
+              <i class="bi bi-pencil"></i>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+<%= raw pagy_bootstrap_nav(@pagy) %>
+<div class="row justify-content-center">
+  <%= link_to "Nova Consulta", new_appointment_path, class: "btn btn-primary col-2" %>
+</div>

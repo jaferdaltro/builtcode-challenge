@@ -1,0 +1,8 @@
+  <%= render  'shared/errors', obj: @appointment%>
+  <%= simple_form_for @appointment do |f| %>
+    <%= f.input :starts_at %>
+    <%= f.input :ends_at %>
+    <%= f.association :doctor %>
+    <%= f.association :patient %>
+    <%= f.submit class: "btn btn-primary" %>
+  <% end %>
