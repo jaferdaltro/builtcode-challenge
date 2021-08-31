@@ -10,3 +10,6 @@ appointment = Appointment.new(starts_at: DateTime.new(2000,2,2,12,31),
 ap appointment.valid?
 
 
+ap flash[:messages]
+
+

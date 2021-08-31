@@ -13,6 +13,7 @@ class PatientsController < ApplicationController
   def create
     @patient = Patient.new(params_patient)
     if @patient.save
+      flash[:success] = "Paciente criado com sucesso"
       redirect_to patients_url
     else
       render :new
@@ -32,10 +33,9 @@ class PatientsController < ApplicationController
   end
 
   def destroy
-      @patient.destroy
-      redirect_to patients_url, status: :no_content
-      flash[:danger] = "Paciente excluido com sucesso"
-   
+    @patient.destroy
+    flash[:success] = "Paciente excluido com sucesso"
+    redirect_to root_url
   end
 
   private

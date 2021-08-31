@@ -9,22 +9,7 @@
       </tr>
     </thead>
     <tbody>
-    <% @doctors.each do |doctor|%>
-      <tr>
-        <td><%= doctor.crm_with_uf %></td>
-        <td><%= doctor.name %></td>
-        <td>
-          <%= link_to edit_doctor_path(doctor), class:"btn btn-primary btn-circle" do %>
-            <i class="bi bi-pencil"></i>
-          <% end %>
-        </td>
-        <td>
-          <%= link_to doctor_path(doctor), method: :delete, data: {confirm: "Tem certeza?"},class:"btn btn-primary btn-circle" do %>
-            <i class="bi bi-trash"></i>
-          <% end %>
-        </td>
-      </tr>
-    <% end%>
+      <%= render @doctors %>
     </tbody>
     </table>
 

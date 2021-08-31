@@ -13,8 +13,10 @@ class DoctorsController < ApplicationController
   def create
     @doctor = Doctor.new(params_doctor)
     if @doctor.save
-      redirect_to root_url
+      flash[:success] = "Médico criado com sucesso"
+      redirect_to root_url 
     else
+      flash[:info] = "Não foi possível inserir o médico"
       render :new
     end
   end
@@ -24,7 +26,7 @@ class DoctorsController < ApplicationController
 
   def update
     if @doctor.update(params_doctor)
-      flash[:notice] = "Atualizado com sucesso!"
+      flash[:success] = "Atualizado com sucesso!"
       redirect_to root_url
     else
       render :edit
@@ -33,8 +35,9 @@ class DoctorsController < ApplicationController
 
   def destroy
     unless @doctor.destroy
-      flash[:notice] = @doctor.errors.full_messages[0]
+      flash[:warnig] = @doctor.errors.full_messages[0] 
     end
+    flash[:success] = "Medico deletado com sucesso!"
     redirect_to root_url
   end
 
