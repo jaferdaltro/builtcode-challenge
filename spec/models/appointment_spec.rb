@@ -2,15 +2,11 @@ require 'rails_helper'
 
 RSpec.describe Appointment, type: :model do
 
-  
+  subject { build(:appointment) }
   
   it { is_expected.to belong_to :patient }
   it { is_expected.to belong_to :doctor }
-  
-  
-  it { should validate_presence_of(:starts_at) }
-  it { is_expected.to validate_presence_of(:ends_at) }
-  
+
   context "with valid paramters" do
 
     # Regra de negócio 7.1: O horário de atendimento é das 9 às 18, com intervalo de almoço das 12 às 13.

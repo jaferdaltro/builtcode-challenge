@@ -12,10 +12,9 @@ class AppointmentsController < ApplicationController
   def create
     @appointment = Appointment.new(appointment_params)
     if @appointment.save
-      flash[:notice] = "Consulta agendada com sucesso"
+      flash[:info] = "Consulta agendada com sucesso"
       redirect_to appointments_url
     else
-      flash[:alert] = "Ocorreu um erro"
       render :new
     end
     
@@ -26,7 +25,7 @@ class AppointmentsController < ApplicationController
 
   def update
     if @appointment.update(appointment_params)
-      flash[:success] = "Atualizado com sucesso!"
+      flash[:info] = "Atualizado com sucesso!"
       redirect_to appointments_url
     else
       render :edit

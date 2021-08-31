@@ -61,10 +61,13 @@ RSpec.describe "Doctors", type: :request do
       end.to change(Doctor, :count).by(-1)
     end
 
-    it 'returns no content status' do
+    it 'if doctor has patient do not delete' do
+      patient = create(:patient)
+      appointment = create(:appointment, doctor_id: doctor.id, patient_id: patient.id)
       delete url
-      expect(response).to have_http_status(:no_content)
+      expect(appointment.errors).to_not include(" Patient must exist, Doctor must exist")
     end
+
   end
 
 end

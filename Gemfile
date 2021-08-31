@@ -29,7 +29,7 @@ group :development, :test do
   gem 'factory_bot_rails', '~> 6.2'  
   gem 'faker'
   gem 'rspec-rails', '~> 5.0', '>= 5.0.2'
-  gem 'shoulda-matchers', '~> 5.0'
+  gem 'shoulda-matchers', '~> 4.0'
   gem 'pry'
   gem 'pry-rails'
   gem 'awesome_print'
