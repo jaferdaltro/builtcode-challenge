@@ -6,14 +6,18 @@ default: &default
 development:
   <<: *default
   database: builtcode_challenge_development
-  user: jafer
-  password: pompeu76
+  user: postgres
+  password: postgres
+  host: 127.0.0.1
+  port: 5430
 
 test:
   <<: *default
   database: builtcode_challenge_test
-  user: jafer
-  password: pompeu76
+  user: postgres
+  password: postgres
+  host: 127.0.0.1
+  port: 5430
 
 production:
   <<: *default
