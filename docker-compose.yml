@@ -1,0 +1,12 @@
+version: '3.7'
+services: 
+  database:
+    image: postgres:12.15
+    ports:
+      - 5430:5432
+
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - ./.db-data:/var/lib/postgresql/data
