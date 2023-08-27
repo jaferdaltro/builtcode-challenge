@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.2'
+ruby '2.7.8'
 
 gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
 
@@ -11,7 +11,7 @@ gem 'puma', '~> 5.0'
 gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 5.0'
 gem 'turbolinks', '~> 5'
-gem 'pagy', '~> 3.5'
+gem 'pagy', '~> 6.0', '>= 6.0.4'
 gem 'cpf_cnpj', '~> 0.5.0'
 gem 'validators', '~> 3.4', '>= 3.4.1'
 gem 'simple_form', '~> 5.1'
