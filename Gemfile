@@ -1,13 +1,13 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "2.7.8"
+ruby "3.0.6"
 
 gem "rails", "~> 6.1.4", ">= 6.1.4.1"
 
 # Basic
-gem "pg", "~> 1.1"
-gem "puma", "~> 5.0"
+gem 'pg', '~> 1.5', '>= 1.5.4'
+gem 'puma', '~> 6.4'
 gem "sass-rails", ">= 6"
 gem "webpacker", "~> 5.0"
 gem "turbolinks", "~> 5"
@@ -19,10 +19,11 @@ gem "time_difference"
 gem "ransack"
 
 # Optimization
-gem "bootsnap", ">= 1.4.4", require: false
+gem 'bootsnap', '~> 1.16'
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
+  gem "dotenv-rails"
   gem "factory_bot_rails", "~> 6.2"
   gem "faker"
   gem "rspec-rails", "~> 5.0", ">= 5.0.2"

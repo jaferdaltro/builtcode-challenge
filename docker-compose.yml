@@ -1,12 +1,78 @@
-version: '3.7'
-services: 
-  database:
-    image: postgres:12.15
-    ports:
-      - 5430:5432
+version: "2"
 
+services:
+  app:
+    build:
+      context: .
+    image: medical_attendance
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - .:/app
+      - medical_bundle:/usr/local/bundle
+    ports:
+      - 3000:3000
+    networks:
+      - medical_net
+    stdin_open: true
+    tty: true
+    env_file:
+      - ${ENV_FILE:-.env}
+    depends_on:
+      - db
+
+  db:
+    image: postgres:13.2-alpine
+    container_name: medical_db
+    volumes:
+      - pg_data:/var/lib/postgresql/data
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-    volumes:
-      - ./.db-data:/var/lib/postgresql/data
+    ports:
+      - "5430:5432"
+    networks:
+      - medical_net
+
+  # redis:
+  #   image: redis:6.0.12-alpine
+  #   container_name: projeto_redis
+  #   command: redis-server
+  #   volumes:
+  #     - redis_data:/data
+  #   ports:
+  #     - "6379:6379"
+  #   logging:
+  #     driver: none
+  #   networks:
+  #     - medical_net
+
+  # sidekiq:
+  #   image: nome_da_imagem_do_app
+  #   container_name: projeto_sidekiq
+  #   depends_on:
+  #     - app
+  #     - db
+  #     - redis
+  #   #mem_limit: 512m
+  #   volumes:
+  #     - .:/app
+  #     - alfasystem_bundle:/usr/local/bundle
+  #   command: dotenv -f ".env.sidekiq" bundle exec sidekiq -C config/sidekiq.yml
+  #   networks:
+  #     - medical_net
+
+  mailcatcher:
+    restart: on-failure
+    image: dockage/mailcatcher:0.8.2
+    ports:
+    - "1080:1080"
+    - "1025:1025"
+
+volumes:
+  pg_data:
+  # redis_data:
+  medical_bundle:
+
+networks:
+  medical_net:
+    name: medical_net

@@ -2,25 +2,13 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  url: <%= ENV["DATABASE_URL"] %>
 
 development:
   <<: *default
-  database: builtcode_challenge_development
-  user: postgres
-  password: postgres
-  host: 127.0.0.1
-  port: 5430
 
 test:
   <<: *default
-  database: builtcode_challenge_test
-  user: postgres
-  password: postgres
-  host: 127.0.0.1
-  port: 5430
 
 production:
   <<: *default
-  database: builtcode_challenge_production
-  username: builtcode_challenge
-  password: <%= ENV['BUILTCODE_CHALLENGE_DATABASE_PASSWORD'] %>
