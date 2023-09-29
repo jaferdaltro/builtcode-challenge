@@ -8,6 +8,10 @@ class Doctor < ApplicationRecord
   validates :crm, presence: true, uniqueness: { case_sensitive: false }
   validates :crm_uf, presence: true
 
+  def self.ransackable_attributes(auth_object = nil)
+    ["created_at", "crm", "crm_uf", "id", "name", "updated_at"]
+  end
+  
   def crm_with_uf
     "#{crm}-#{crm_uf}"
   end
