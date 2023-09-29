@@ -11,7 +11,7 @@ gem 'puma', '~> 6.4'
 gem "sass-rails", ">= 6"
 gem "webpacker", "~> 5.0"
 gem "turbolinks", "~> 5"
-gem "pagy", "~> 6.0", ">= 6.0.4"
+gem 'pagy', '~> 6.1'
 gem "cpf_cnpj", "~> 0.5.0"
 gem "validators", "~> 3.4", ">= 3.4.1"
 gem "simple_form", "~> 5.1"
