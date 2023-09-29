@@ -45,3 +45,7 @@ yarn-debug.log*
 # Ignore simplecov html report
 coverage
 
+# Ignore .env
+.env
+.env.test
+
