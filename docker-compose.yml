@@ -29,7 +29,7 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     ports:
-      - "5430:5432"
+      - "5432:5432"
     networks:
       - medical_net
 
@@ -75,4 +75,3 @@ volumes:
 
 networks:
   medical_net:
-    name: medical_net
