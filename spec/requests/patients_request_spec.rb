@@ -59,7 +59,7 @@ RSpec.describe "Patients", type: :request do
 
     it 'if patient has patient do not delete' do
       patient = create(:patient)
-      appointment = create(:appointment, patient_id: patient.id, patient_id: patient.id)
+      appointment = create(:appointment, patient_id: patient.id)
       delete url
       expect(appointment.errors).to_not include(" Patient must exist, patient must exist")
     end
